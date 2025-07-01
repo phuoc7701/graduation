@@ -1,0 +1,156 @@
+/* Base styles */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #2b5876, #4e4376);
+  overflow: hidden;
+}
+
+/* Form nhập tên */
+.intro-form {
+  height: 100vh;
+  background: linear-gradient(to right, #43cea2, #f8ffae);
+}
+
+/* Trang chính thiệp mời */
+.invitation-page {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  transition: background-color 0.5s ease;
+}
+
+/* Ảnh avatar */
+.avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid white;
+  display: block;
+  margin: 0 auto 1.5rem auto;
+}
+
+/* Tên khách */
+.guest-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+/* Ngôi sao rơi */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  top: -40px;
+  width: 30px;
+  height: 30px;
+  background: gold;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+    50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
+  );
+  animation: fall linear infinite, twinkle 1.5s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(50px);
+    opacity: 0;
+  }
+}
+
+.envelope-container {
+  height: 100vh;
+  background: radial-gradient(circle, #f9f9f9, #e0e0e0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.envelope {
+  position: relative;
+  width: 320px;
+  height: 220px;
+  background: #fefefe;
+  border-radius: 6px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Nắp thư */
+.envelope .flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-bottom: 100px solid #c2b280;
+  z-index: 2;
+  transition: transform 1s ease;
+  transform-origin: top;
+}
+
+.envelope.opened .flap {
+  transform: rotateX(180deg);
+}
+
+/* Thân thư */
+.envelope .body {
+  position: absolute;
+  top: 100px;
+  width: 100%;
+  height: 120px;
+  background: #fff8dc;
+  z-index: 1;
+}
+
+/* Lá thư */
+.letter {
+  position: absolute;
+  top: 100%;
+  left: 10%;
+  width: 80%;
+  height: 140px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  padding: 16px;
+  text-align: center;
+  font-size: 17px;
+  line-height: 1.5;
+  opacity: 0;
+  transition: top 1s ease, opacity 1s ease;
+  z-index: 3;
+}
+
+.envelope.opened .letter {
+  top: 40px;
+  opacity: 1;
+}

@@ -1,0 +1,20 @@
+#star-field {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.star {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(180deg, #fff 0%, rgba(255,255,255,0) 100%);
+  animation: fall linear;
+}
+@keyframes fall {
+  0% { top: -60px; }
+  100% { top: 100vh; }
+}
